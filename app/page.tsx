@@ -1,17 +1,266 @@
- "use client";
-import {motion} from "framer-motion"; import {Github, Linkedin, Instagram, Mail, ArrowDownRight, ExternalLink, BrainCircuit, Cpu, FileText} from "lucide-react";
-const projects=[
-["Stock Movement Prediction","Fusion-LSTM + FinBERT","Fused OHLCV signals with financial-news sentiment for Indian stock movement prediction.","2.27% MAPE","https://github.com/Tripathijii147/Stock-Price-Prediction-model-"],
-["Stress Detection from Space Audio","Acoustic ML Ensemble","Cross-domain stress detection trained on RAVDESS and evaluated on Apollo mission audio.","83.8% accuracy","https://github.com/Tripathijii147/stress-detection-space-audio"],
-["Handwriting Recognition","TrOCR + CRNN","Cursive handwritten text recognition with deep sequence modeling and OCR pipelines.","97.01% accuracy","https://github.com/Tripathijii147/handwriting-recognition-trocr-crnn"],
-["Autism Detection","Multimodal Fusion","Text and audio fusion experiments for ASD detection using BERT, TF-IDF and SVM.","85% accuracy","https://github.com/Tripathijii147/autism-detection-multimodal"]];
-const skills=["Python","PyTorch","TensorFlow","Hugging Face","BERT / FinBERT","Computer Vision","NLP","FastAPI","Streamlit","SQL","C++","Java"];
-export default function Home(){return <main>
-<nav><b>ST<span>.</span></b><div><a href="#work">Work</a><a href="#research">Research</a><a href="#contact">Contact</a></div></nav>
-<section className="hero"><div className="orb one"/><div className="orb two"/><motion.div initial={{opacity:0,y:25}} animate={{opacity:1,y:0}} transition={{duration:.7}}><p className="eyebrow">AI / ML ENGINEER · RESEARCHER · BUILDER</p><h1>Turning data into<br/><em>intelligent systems.</em></h1><p className="lead">I’m Saket Tripathi, an AI/ML engineer building research-driven solutions across NLP, computer vision, multimodal learning and financial AI.</p><div className="actions"><a className="primary" href="#work">Explore my work <ArrowDownRight/></a><a className="secondary" href="https://github.com/Tripathijii147" target="_blank">GitHub <Github/></a></div></motion.div><motion.div className="portrait" initial={{opacity:0,scale:.9}} animate={{opacity:1,scale:1}} transition={{delay:.25}}><img src="/saket-tripathi.jpg" alt="Saket Tripathi"/><div className="badge"><BrainCircuit/> Research-first ML</div></motion.div></section>
-<section className="stats"><div><strong>4+</strong><span>Featured ML projects</span></div><div><strong>97.01%</strong><span>OCR test accuracy</span></div><div><strong>2.27%</strong><span>Stock prediction MAPE</span></div><div><strong>2027</strong><span>Integrated B.Tech + M.Tech</span></div></section>
-<section id="work"><p className="eyebrow">SELECTED WORK</p><h2>Projects with measurable outcomes.</h2><div className="grid">{projects.map((p,i)=><motion.article whileHover={{y:-8}} key={p[0]}><div className="num">0{i+1}</div><h3>{p[0]}</h3><p className="tag">{p[1]}</p><p>{p[2]}</p><div className="metric">{p[3]}</div><a href={p[4]} target="_blank">View repository <ExternalLink/></a></motion.article>)}</div></section>
-<section id="research" className="research"><div><p className="eyebrow">RESEARCH & EXPERIENCE</p><h2>Engineering with academic depth.</h2><p>Research Intern at MANIT Bhopal and Machine Learning Intern at IIT Roorkee. My work spans financial forecasting, OCR, audio intelligence and multimodal AI.</p></div><div className="timeline"><div><b>2026</b><p><strong>ICICDS Conference Presentation</strong><br/>Stock Movement Prediction using Auto-Encoder and Fusion-LSTM with News Sentiments.</p></div><div><b>2025</b><p><strong>MANIT Bhopal · Research Intern</strong><br/>Financial sentiment and deep-learning forecasting research.</p></div><div><b>2024–25</b><p><strong>IIT Roorkee · ML Intern</strong><br/>CNN-BiLSTM handwriting recognition research.</p></div></div></section>
-<section className="skills"><p className="eyebrow">TOOLKIT</p><h2>Technologies I work with.</h2><div>{skills.map(s=><span key={s}>{s}</span>)}</div></section>
-<section id="contact" className="contact"><Cpu/><p className="eyebrow">LET'S CONNECT</p><h2>Have an idea worth building?</h2><p>Open to AI/ML research, internships, collaborations and ambitious engineering problems.</p><div className="social"><a href="mailto:saket.22190503052@cuj.ac.in"><Mail/> Email</a><a href="https://www.linkedin.com/in/saket-tripathi-178819286/" target="_blank"><Linkedin/> LinkedIn</a><a href="https://www.instagram.com/tripathijii147" target="_blank"><Instagram/> Instagram</a><a href="https://github.com/Tripathijii147" target="_blank"><Github/> GitHub</a></div></section>
-<footer>© {new Date().getFullYear()} Saket Tripathi <span>Built for intelligent work.</span></footer></main>
+"use client";
+
+import { motion } from "framer-motion";
+import {
+  Github,
+  Linkedin,
+  Instagram,
+  Mail,
+  ArrowDownRight,
+  ExternalLink,
+  BrainCircuit,
+  Cpu,
+} from "lucide-react";
+
+const projects = [
+  [
+    "Stock Movement Prediction",
+    "Fusion-LSTM + FinBERT",
+    "Fused OHLCV signals with financial-news sentiment for Indian stock movement prediction.",
+    "2.27% MAPE",
+    "https://github.com/Tripathijii147/Stock-Price-Prediction-model-",
+  ],
+  [
+    "Stress Detection from Space Audio",
+    "Acoustic ML Ensemble",
+    "Cross-domain stress detection trained on RAVDESS and evaluated on Apollo mission audio.",
+    "83.8% accuracy",
+    "https://github.com/Tripathijii147/stress-detection-space-audio",
+  ],
+  [
+    "Handwriting Recognition",
+    "TrOCR + CRNN",
+    "Cursive handwritten text recognition with deep sequence modeling and OCR pipelines.",
+    "97.01% accuracy",
+    "https://github.com/Tripathijii147/handwriting-recognition-trocr-crnn",
+  ],
+  [
+    "Autism Detection",
+    "Multimodal Fusion",
+    "Text and audio fusion experiments for ASD detection using BERT, TF-IDF and SVM.",
+    "85% accuracy",
+    "https://github.com/Tripathijii147/autism-detection-multimodal",
+  ],
+];
+
+const skills = [
+  "Python",
+  "PyTorch",
+  "TensorFlow",
+  "Hugging Face",
+  "BERT / FinBERT",
+  "Computer Vision",
+  "NLP",
+  "FastAPI",
+  "Streamlit",
+  "SQL",
+  "C++",
+  "Java",
+];
+
+export default function Home() {
+  return (
+    <main>
+      <nav>
+        <b>
+          ST<span>.</span>
+        </b>
+
+        <div>
+          <a href="#work">Work</a>
+          <a href="#research">Research</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <section className="hero">
+        <div className="orb one" />
+        <div className="orb two" />
+
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <p className="eyebrow">AI / ML ENGINEER · RESEARCHER · BUILDER</p>
+
+          <h1>
+            Turning data into
+            <br />
+            <em>intelligent systems.</em>
+          </h1>
+
+          <p className="lead">
+            I’m Saket Tripathi, an AI/ML engineer building research-driven
+            solutions across NLP, computer vision, multimodal learning and
+            financial AI.
+          </p>
+
+          <div className="actions">
+            <a className="primary" href="#work">
+              Explore my work <ArrowDownRight />
+            </a>
+
+            <a
+              className="secondary"
+              href="https://github.com/Tripathijii147"
+              target="_blank"
+            >
+              GitHub <Github />
+            </a>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="portrait"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.25 }}
+        >
+          <img src="/saket-tripathi.jpg" alt="Saket Tripathi" />
+
+          <div className="badge">
+            <BrainCircuit /> Research-first ML
+          </div>
+        </motion.div>
+      </section>
+
+      <section className="stats">
+        <div>
+          <strong>4+</strong>
+          <span>Featured ML projects</span>
+        </div>
+
+        <div>
+          <strong>97.01%</strong>
+          <span>OCR test accuracy</span>
+        </div>
+
+        <div>
+          <strong>2.27%</strong>
+          <span>Stock prediction MAPE</span>
+        </div>
+
+        <div>
+          <strong>2027</strong>
+          <span>Integrated B.Tech + M.Tech</span>
+        </div>
+      </section>
+
+      <section id="work">
+        <p className="eyebrow">SELECTED WORK</p>
+        <h2>Projects with measurable outcomes.</h2>
+
+        <div className="grid">
+          {projects.map((project, index) => (
+            <motion.article whileHover={{ y: -8 }} key={project[0]}>
+              <div className="num">0{index + 1}</div>
+              <h3>{project[0]}</h3>
+              <p className="tag">{project[1]}</p>
+              <p>{project[2]}</p>
+              <div className="metric">{project[3]}</div>
+
+              <a href={project[4]} target="_blank">
+                View repository <ExternalLink />
+              </a>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section id="research" className="research">
+        <div>
+          <p className="eyebrow">RESEARCH & EXPERIENCE</p>
+          <h2>Engineering with academic depth.</h2>
+
+          <p>
+            Research Intern at MANIT Bhopal and Machine Learning Intern at IIT
+            Roorkee. My work spans financial forecasting, OCR, audio
+            intelligence and multimodal AI.
+          </p>
+        </div>
+
+        <div className="timeline">
+          <div>
+            <b>2026</b>
+            <p>
+              <strong>ICICDS Conference Presentation</strong>
+              <br />
+              Stock Movement Prediction using Auto-Encoder and Fusion-LSTM with
+              News Sentiments.
+            </p>
+          </div>
+
+          <div>
+            <b>2025</b>
+            <p>
+              <strong>MANIT Bhopal · Research Intern</strong>
+              <br />
+              Financial sentiment and deep-learning forecasting research.
+            </p>
+          </div>
+
+          <div>
+            <b>2024–25</b>
+            <p>
+              <strong>IIT Roorkee · ML Intern</strong>
+              <br />
+              CNN-BiLSTM handwriting recognition research.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="skills">
+        <p className="eyebrow">TOOLKIT</p>
+        <h2>Technologies I work with.</h2>
+
+        <div>
+          {skills.map((skill) => (
+            <span key={skill}>{skill}</span>
+          ))}
+        </div>
+      </section>
+
+      <section id="contact" className="contact">
+        <Cpu />
+        <p className="eyebrow">LET&apos;S CONNECT</p>
+        <h2>Have an idea worth building?</h2>
+
+        <p>
+          Open to AI/ML research, internships, collaborations and ambitious
+          engineering problems.
+        </p>
+
+        <div className="social">
+          <a href="mailto:saket.22190503052@cuj.ac.in">
+            <Mail /> Email
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/saket-tripathi-178819286/"
+            target="_blank"
+          >
+            <Linkedin /> LinkedIn
+          </a>
+
+          <a
+            href="https://www.instagram.com/tripathijii147"
+            target="_blank"
+          >
+            <Instagram /> Instagram
+          </a>
+
+          <a href="https://github.com/Tripathijii147" target="_blank">
+            <Github /> GitHub
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        © {new Date().getFullYear()} Saket Tripathi
+        <span>Built for intelligent work.</span>
+      </footer>
+    </main>
+  );
+}
